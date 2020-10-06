@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://volunteer:volunteer123@cluster0.izwsv.mongodb.net/volunteerNetworkdb?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.is4kq.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 const port = 5000
 
@@ -12,7 +12,7 @@ const app = express()
 app.use(bodyParser.json());
 app.use(cors());
 
-const pass ="volunteer123";
+
 
 
 const ObjectId = require('mongodb').ObjectId;
@@ -60,4 +60,4 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port)
+app.listen(process.env.PORT ||port)

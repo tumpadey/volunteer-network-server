@@ -1,4 +1,5 @@
 const express = require('express')
+
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -40,11 +41,16 @@ client.connect(err => {
                       res.send(documents)
                   })
           })
-          app.get("/events/:_id", (req, res) => {
-            eventCollection.find({ _id: ObjectId(req.params._id) })
-                .toArray((err, documents) => {
-                    res.send(documents[0])
-                })
+            app.get("/events/:_id", (req, res) => {
+              eventCollection.find({ _id: ObjectId(req.params._id) })
+                  .toArray((err, documents) => {
+                      res.send(documents[0])
+                  })
+          })
+      
+
+          
+          
     })
 
 });

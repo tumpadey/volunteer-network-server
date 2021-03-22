@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 
 const port = 5000;
 
+app.get('/', (req, res) =>{
+    res.send("hello from db it's working")
+})
+
 
 
 
